@@ -42,7 +42,7 @@ public class Merge {
             if (listFirstHalf[firstHalfIndex] < listSecondHalf[secondHalfIndex]) {
                 listToSort[mergeIndex] = listFirstHalf[firstHalfIndex];
                 firstHalfIndex++;
-            } else { //todo: probably just else
+            } else {
                 listToSort[mergeIndex] = listSecondHalf[secondHalfIndex];
                 secondHalfIndex++;
             }
