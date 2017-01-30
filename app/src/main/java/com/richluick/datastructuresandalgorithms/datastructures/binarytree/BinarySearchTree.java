@@ -6,11 +6,27 @@ package com.richluick.datastructuresandalgorithms.datastructures.binarytree;
 
 public class BinarySearchTree<T> {
 
-    private TreeNode root;
+    private TreeNode head;
 
-    public BinarySearchTree(TreeNode root) {
-        this.root = root;
+    public BinarySearchTree(TreeNode head) {
+        this.head = head;
     }
 
+    public TreeNode insert(TreeNode<Integer> node) {
+        return insert(head, node);
+    }
 
+    private TreeNode<Integer> insert(TreeNode<Integer> head, TreeNode<Integer> node) {
+        if (head == null) {
+            return node;
+        }
+
+        if (node.getData() <= head.getData()) {
+            head.setLeftChild(insert(head.getLeftChild(), node));
+        } else {
+            head.setRightChild(insert(head.getRightChild(), node));
+        }
+
+        return head;
+    }
 }
