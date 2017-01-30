@@ -23,7 +23,7 @@ public class ShellSort {
         for (int i = startIndex; i < listToSort.length; i = i + increment) {
             for (int j = Math.min(i + increment, listToSort.length - 1);
                     j - increment > 0;
-                    j = j- increment) {
+                    j = j - increment) {
 
                 if (listToSort[j] > listToSort[j - increment]) {
                     swap(listToSort, j, j - increment);
