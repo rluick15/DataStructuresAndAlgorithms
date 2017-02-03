@@ -94,7 +94,65 @@ public class BinarySearchTree<T> {
         mirrorTree(node.getRightChild());
     }
 
-    public void numberOfUniqueTrees() {
+    public int countTrees(int numNodes) {
+        if (numNodes <= 1) {
+            return 1;
+        }
 
+        int sum = 0;
+        for (int i = 1; i<= numNodes; i++) {
+            int countLefTrees = countTrees(i - 1);
+            int countRightTrees = countTrees(numNodes - i);
+
+            sum = sum + (countLefTrees * countRightTrees);
+        }
+
+        return sum;
+    }
+
+    public void printRange(TreeNode<Integer> head, int low, int high) {
+        if (head == null) {
+            return;
+        }
+
+        if (head.getData() <= high && head.getData() >= low) {
+            System.out.println(head.getData());
+        }
+
+        if (low <= head.getData()) {
+            printRange(head.getLeftChild(), low, high);
+        }
+
+        if (high > head.getData()) {
+            printRange(head.getRightChild(), low, high);
+        }
+    }
+
+    public boolean isBinarySearchTree(TreeNode<Integer> head) {
+        boolean isSearchTree = true;
+        if (head == null) {
+            return true;
+        }
+
+        if (head.getLeftChild() != null) {
+            if (head.getLeftChild().getData() <= head.getData()) {
+                isSearchTree = isBinarySearchTree(head);
+            } else {
+                return false;
+            }
+        }
+
+        if (!isSearchTree) {
+            return false;
+        }
+
+        if (head.getRightChild() != null) {
+            if (head.getRightChild().getData() > head.getData()) {
+                isSearchTree = isBinarySearchTree(head);
+            } else {
+                return false;
+            }
+        }
+        return isSearchTree;
     }
 }
