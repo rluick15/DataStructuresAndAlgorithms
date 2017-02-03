@@ -21,6 +21,8 @@ public abstract class Heap<T extends Comparable> {
         array = (T[]) Array.newInstance(clazz, size);
     }
 
+    abstract void siftDown(int index);
+
     public int getLeftChildIndex(int index) {
         int leftIndex = (2 * index) + 1;
         if (leftIndex >= count) {
