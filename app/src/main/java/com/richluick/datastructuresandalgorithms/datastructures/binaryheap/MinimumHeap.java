@@ -37,4 +37,16 @@ public class MinimumHeap<T extends Comparable> extends Heap<T> {
             siftDown(smallerIndex);
         }
     }
+
+    @Override
+    void siftUp(int index) {
+        int parentIndex = getParent(index);
+
+        if (parentIndex != -1 && getElementAtIndex(index).compareTo(getElementAtIndex(parentIndex)) < 0) {
+            swap(index, parentIndex);
+            siftUp(parentIndex);
+        }
+    }
+
+
 }

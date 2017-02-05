@@ -23,6 +23,8 @@ public abstract class Heap<T extends Comparable> {
 
     abstract void siftDown(int index);
 
+    abstract void siftUp(int index);
+
     public int getLeftChildIndex(int index) {
         int leftIndex = (2 * index) + 1;
         if (leftIndex >= count) {
