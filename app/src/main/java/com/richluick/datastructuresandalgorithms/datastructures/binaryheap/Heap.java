@@ -69,4 +69,40 @@ public abstract class Heap<T extends Comparable> {
     public T getElementAtIndex(int index) {
         return array[index];
     }
+
+    public T getHighestPriority() throws HeapEmptyException {
+        if (isEmpty()) {
+            throw new HeapEmptyException();
+        }
+
+        return array[0];
+    }
+
+    public void insert(T data) throws HeapFullException {
+        if (isFull()) {
+            throw new HeapFullException();
+        }
+
+        array[count] = data;
+        siftUp(count);
+        count++;
+    }
+
+    public T remove() throws HeapEmptyException {
+        T data = getHighestPriority();
+
+        array[0] = array[count - 1];
+        count--;
+        siftDown(0);
+
+        return data;
+    }
+
+    public boolean isLeafNode(int index) {
+        if (getLeftChildIndex(index) == -1 && getRightChildIndex(index) == -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

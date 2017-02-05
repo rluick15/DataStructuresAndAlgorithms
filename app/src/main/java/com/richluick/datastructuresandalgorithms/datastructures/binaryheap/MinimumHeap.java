@@ -48,5 +48,33 @@ public class MinimumHeap<T extends Comparable> extends Heap<T> {
         }
     }
 
+    public T findMaximumElement() throws HeapEmptyException {
+        int lastIndex = getCount() - 1;
+        int firstChildIndex = getParent(lastIndex) + 1;
 
+        T max = getElementAtIndex(firstChildIndex);
+
+        for (int i = firstChildIndex; i <= lastIndex; i++) {
+            if (max.compareTo(getElementAtIndex(i)) < 0) {
+                max = getElementAtIndex(i);
+            }
+        }
+
+        return max;
+    }
+
+    public void findLargestLElementsInAStream(int k, int[] randomNumberArry) throws HeapFullException, HeapEmptyException {
+        MinimumHeap<Integer> minimumHeap = new MinimumHeap<Integer>(Integer.class, k);
+
+        for (int i : randomNumberArry) {
+            if (minimumHeap.isEmpty()) {
+                minimumHeap.insert(i);
+            } else if (!minimumHeap.isFull() || minimumHeap.getHighestPriority() < i) {
+                if (minimumHeap.isFull()) {
+                    minimumHeap.remove();
+                }
+                minimumHeap.insert(i);
+            }
+        }
+    }
 }
