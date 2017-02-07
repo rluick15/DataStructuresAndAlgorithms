@@ -3,7 +3,7 @@ package com.richluick.datastructuresandalgorithms.datastructures.graph;
 import java.util.List;
 
 /**
- * Created by rluic on 2/6/2017.
+ * Created by q1410049 on 2/7/17.
  */
 
 public interface Graph {

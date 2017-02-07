@@ -37,7 +37,7 @@ public class Merge {
         int firstHalfIndex = 0;
         int secondHalfIndex = 0;
 
-        while (firstHalfIndex < listFirstHalf.length && secondHalfIndex < listFirstHalf.length) {
+        while (firstHalfIndex < listFirstHalf.length && secondHalfIndex < listSecondHalf.length) {
             //iterate over both lists, choose least one and then put into main list
             if (listFirstHalf[firstHalfIndex] < listSecondHalf[secondHalfIndex]) {
                 listToSort[mergeIndex] = listFirstHalf[firstHalfIndex];
