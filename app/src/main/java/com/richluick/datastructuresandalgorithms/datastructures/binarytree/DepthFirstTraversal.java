@@ -13,7 +13,7 @@ public class DepthFirstTraversal {
             return;
         }
 
-        Log.e("Process Node", String.valueOf(root.getData()));
+        Log.e("Process GraphNode", String.valueOf(root.getData()));
         preOrder(root.getLeftChild());
         preOrder(root.getRightChild());
     }
@@ -24,7 +24,7 @@ public class DepthFirstTraversal {
         }
 
         preOrder(root.getLeftChild());
-        Log.e("Process Node", String.valueOf(root.getData()));
+        Log.e("Process GraphNode", String.valueOf(root.getData()));
         preOrder(root.getRightChild());
     }
 
@@ -35,6 +35,6 @@ public class DepthFirstTraversal {
 
         preOrder(root.getLeftChild());
         preOrder(root.getRightChild());
-        Log.e("Process Node", String.valueOf(root.getData()));
+        Log.e("Process GraphNode", String.valueOf(root.getData()));
     }
 }
