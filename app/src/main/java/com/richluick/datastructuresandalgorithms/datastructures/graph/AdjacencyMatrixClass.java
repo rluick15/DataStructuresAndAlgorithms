@@ -57,4 +57,25 @@ public class AdjacencyMatrixClass implements Graph {
 
         return adjacentVerticies;
     }
+
+    @Override
+    public int getNumVertices() {
+        return numVertices;
+    }
+
+    @Override
+    public int getIndegree(int v) {
+        if (v >= numVertices || v < 0) {
+            throw new IllegalArgumentException("");
+        }
+
+        int indegree = 0;
+        for (int i = 0; i < numVertices; i++) {
+            if (adjacencyMatrix[i][v] != 0) {
+                indegree++;
+            }
+        }
+
+        return indegree;
+    }
 }

@@ -35,11 +35,31 @@ public class AdjacencySet implements Graph {
     }
 
     @Override
+    public int getNumVertices() {
+        return numVertices;
+    }
+
+    @Override
     public List<Integer> getAdjacentVertices(int v) {
         if (v >= numVertices || v < 0) {
             throw new IllegalArgumentException("");
         }
 
         return vertexList.get(v).getAdjacentVertices();
+    }
+
+    @Override
+    public int getIndegree(int v) {
+        if (v >= numVertices || v < 0) {
+            throw new IllegalArgumentException("");
+        }
+
+        int indegree = 0;
+        for (int i = 0; i < numVertices; i++) {
+            if (getAdjacentVertices(v).contains(i)) {
+                indegree++;
+            }
+        }
+        return indegree;
     }
 }
