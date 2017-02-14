@@ -32,7 +32,7 @@ public class QuickSort {
                 h--;
             }
             if (l < h) {
-                swap(listToSort, low, h);
+                swap(listToSort, l, h);
             }
         }
 
