@@ -1,6 +1,8 @@
 package com.richluick.datastructuresandalgorithms.datastructures.binarytree;
 
 
+import static com.richluick.datastructuresandalgorithms.sorting.HelperMethods.swap;
+
 /**
  * Created by rluic on 1/29/2017.
  */
@@ -155,4 +157,44 @@ public class BinarySearchTree<T> {
         }
         return isSearchTree;
     }
+
+    public void bubbleSort(int[] list) {
+        boolean didSort;
+        for (int i = 0; i < list.length; i++) {
+            didSort = false;
+            for (int j = 0; j < list.length - i; j++) {
+                if (list[j] > list[j + 1]) {
+                    swap(list, j, j + 1);
+                    didSort = true;
+                }
+            }
+
+            if (!didSort) {
+                break;
+            }
+        }
+    }
+
+    public void selectionSort(int[] list) {
+        for (int i = 0; i < list.length; i++) {
+            for (int j = i + 1; j < list.length; j++) {
+                if (list[i] > list[j]) {
+                    swap(list, i , j);
+                }
+            }
+        }
+    }
+
+    public void insertionSort(int[] list) {
+        for (int i = 0; i < list.length; i++) {
+            for (int j = i + 1; j > 0; j--) {
+                if (list[j] > list[j - 1]) {
+                    swap(list, i , j);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
 }
